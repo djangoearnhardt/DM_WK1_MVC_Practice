@@ -9,22 +9,44 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Grocery Lists-->
         <scene sceneID="xJz-W9-eec">
             <objects>
-                <tableViewController id="cDf-kA-qQH" sceneMemberID="viewController">
+                <tableViewController id="cDf-kA-qQH" customClass="GroceryListTableViewController" customModule="Week1AssesmentPractice" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="PJb-pQ-fsN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="EJN-6j-LBV">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eWp-kD-Jfv">
+                                    <rect key="frame" x="8" y="8" width="398" height="28"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="eWp-kD-Jfv" firstAttribute="leading" secondItem="EJN-6j-LBV" secondAttribute="leading" constant="8" id="Bjz-fS-uZJ"/>
+                                <constraint firstAttribute="trailing" secondItem="eWp-kD-Jfv" secondAttribute="trailing" constant="8" id="M58-88-8YY"/>
+                                <constraint firstItem="eWp-kD-Jfv" firstAttribute="top" secondItem="EJN-6j-LBV" secondAttribute="top" constant="8" id="PHm-QB-2s5"/>
+                                <constraint firstAttribute="bottom" secondItem="eWp-kD-Jfv" secondAttribute="bottom" constant="8" id="w1V-QK-EOB"/>
+                            </constraints>
+                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="At3-n9-1i9">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="groceryListCell" id="At3-n9-1i9">
+                                <rect key="frame" x="0.0" y="72" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="At3-n9-1i9" id="mYg-SQ-hf0">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="v8X-JZ-u3E" kind="show" id="8NM-mh-vir"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -32,11 +54,74 @@
                             <outlet property="delegate" destination="cDf-kA-qQH" id="hVf-Kh-7XO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="O5z-eg-NNC"/>
+                    <navigationItem key="navigationItem" title="Grocery Lists" id="O5z-eg-NNC">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5rc-yN-s5F">
+                            <connections>
+                                <action selector="groceryListAddTapped:" destination="cDf-kA-qQH" id="Aq6-9m-89a"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="groceryListTextField" destination="eWp-kD-Jfv" id="q8h-ys-xE6"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v6P-L0-Kk4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="141" y="78"/>
+        </scene>
+        <!--Add groceries to your list-->
+        <scene sceneID="4jT-Z6-efF">
+            <objects>
+                <tableViewController id="v8X-JZ-u3E" customClass="GroceryItemTableViewController" customModule="Week1AssesmentPractice" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="b7a-n0-ett">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="3HM-8Q-bOL">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3ax-5T-ifh">
+                                    <rect key="frame" x="8" y="8" width="398" height="28"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="3ax-5T-ifh" secondAttribute="trailing" constant="8" id="KCb-Oq-jl7"/>
+                                <constraint firstItem="3ax-5T-ifh" firstAttribute="top" secondItem="3HM-8Q-bOL" secondAttribute="top" constant="8" id="Uq6-P3-nEp"/>
+                                <constraint firstItem="3ax-5T-ifh" firstAttribute="leading" secondItem="3HM-8Q-bOL" secondAttribute="leading" constant="8" id="WP4-Zj-DXO"/>
+                                <constraint firstAttribute="bottom" secondItem="3ax-5T-ifh" secondAttribute="bottom" constant="8" id="Xho-2F-gpW"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="X7i-Td-2nK">
+                                <rect key="frame" x="0.0" y="72" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="X7i-Td-2nK" id="gJP-Sb-7xx">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="v8X-JZ-u3E" id="qvg-AF-tse"/>
+                            <outlet property="delegate" destination="v8X-JZ-u3E" id="tcQ-Ef-eka"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="cco-gw-JTX"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Add groceries to your list" id="dPS-MP-5RD">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="nSP-VB-egX"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WH0-r8-FSA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="893" y="78"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ska-N5-OP6">
