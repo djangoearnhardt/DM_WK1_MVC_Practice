@@ -45,7 +45,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="v8X-JZ-u3E" kind="show" id="8NM-mh-vir"/>
+                                    <segue destination="v8X-JZ-u3E" kind="show" identifier="toGroceryItemsDetail" id="8NM-mh-vir"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -97,12 +97,21 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="X7i-Td-2nK">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="listCell" textLabel="0Za-Jv-OPP" style="IBUITableViewCellStyleDefault" id="X7i-Td-2nK">
                                 <rect key="frame" x="0.0" y="72" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="X7i-Td-2nK" id="gJP-Sb-7xx">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0Za-Jv-OPP">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -115,9 +124,16 @@
                         <barButtonItem title="Item" id="cco-gw-JTX"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Add groceries to your list" id="dPS-MP-5RD">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="nSP-VB-egX"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="nSP-VB-egX">
+                            <connections>
+                                <action selector="addGroceryButtonTapped:" destination="v8X-JZ-u3E" id="IRG-Gz-reb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="groceryItemTextField" destination="3ax-5T-ifh" id="wPz-vC-OFY"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WH0-r8-FSA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

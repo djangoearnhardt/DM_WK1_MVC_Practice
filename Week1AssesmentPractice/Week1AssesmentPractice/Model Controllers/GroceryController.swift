@@ -14,8 +14,9 @@ class GroceryController {
 
     // Create
     ///
-    func createGrocery(item: String) {
-        
+    static func createGrocery(item: String, groceryList: GroceryList) {
+        let newItem = Grocery(name: item)
+        GroceryListController.sharedInstance.addGrocery(grocery: newItem, list: groceryList)
         
     }
 }

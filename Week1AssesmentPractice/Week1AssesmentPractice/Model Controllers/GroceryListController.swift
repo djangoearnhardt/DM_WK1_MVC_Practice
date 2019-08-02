@@ -29,6 +29,11 @@ class GroceryListController {
             groceryListNames.append(newList)
             saveToPersistentStorage()
     }
+    
+    func addGrocery(grocery: Grocery, list: GroceryList) {
+        list.list.append(grocery)
+        saveToPersistentStorage()
+    }
        
 //    func updateGroceryList(item: String, groceryList: [GroceryList]) {
 //        guard let list = groceryListNames.firstIndex(of: item) else { return }
@@ -46,17 +51,32 @@ class GroceryListController {
     func fileURL() -> URL {
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let fileURL = urls[0].appendingPathComponent("groceryList.json")
+        print(fileURL)
         return fileURL
+       
     }
     
     /// Save JSON to local storage
     func saveToPersistentStorage() {
-        
+        let encoder = JSONEncoder()
+        do {
+            let jsonGroceryList = try encoder.encode(groceryListNames)
+            try jsonGroceryList.write(to: fileURL())
+        } catch let encodingError {
+            print("There was an error saving!! \(encodingError.localizedDescription)")
+        }
     }
-    
     /// Load JSON from local storage
-    func deleteFromPersistentStorage() {
+    func loadFromPersistentStorage() {
+        let decoder = JSONDecoder()
         
+        do {
+            let jsonData = try Data(contentsOf: fileURL())
+            let decodedGroceryList = try decoder.decode([GroceryList].self, from: jsonData)
+            groceryListNames = decodedGroceryList
+        } catch let decodingError {
+            print("There was an error decoding!! \(decodingError.localizedDescription)")
+        }
     }
 }
 

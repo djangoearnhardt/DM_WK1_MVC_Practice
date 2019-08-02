@@ -10,7 +10,7 @@ import Foundation
 
 class GroceryList: Codable {
     let name: String
-    let list: [Grocery]
+    var list: [Grocery]
     
     init(name: String, list: [Grocery] = []) {
         self.name = name

@@ -11,11 +11,11 @@ import Foundation
 class Grocery: Codable {
     
     let name: String
-    let brand: String?
+//    let brand: String?
     
-    init(name: String, brand: String?) {
+    init(name: String) {
         self.name = name
-        self.brand = brand
+
     }
 }
 
