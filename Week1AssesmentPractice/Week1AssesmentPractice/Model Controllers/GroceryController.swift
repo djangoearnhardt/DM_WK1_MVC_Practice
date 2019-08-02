@@ -10,4 +10,12 @@ import Foundation
 
 class GroceryController {
     
+    // MARK: - CRUD
+
+    // Create
+    ///
+    func createGrocery(item: String) {
+        
+        
+    }
 }

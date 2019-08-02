@@ -13,7 +13,7 @@ class Grocery: Codable {
     let name: String
     let brand: String?
     
-    init(name: String, brand: String) {
+    init(name: String, brand: String?) {
         self.name = name
         self.brand = brand
     }
