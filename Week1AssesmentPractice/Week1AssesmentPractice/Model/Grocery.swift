@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Grocery {
+class Grocery: Codable {
     
     let name: String
     let brand: String?
@@ -17,4 +17,12 @@ class Grocery {
         self.name = name
         self.brand = brand
     }
+}
+
+extension Grocery: Equatable {
+    static func == (lhs: Grocery, rhs: Grocery) -> Bool {
+        return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
+    }
+    
+    
 }

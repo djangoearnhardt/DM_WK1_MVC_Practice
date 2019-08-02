@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GroceryList {
+class GroceryList: Codable {
     let name: String
     let list: [Grocery]
     
@@ -16,4 +16,12 @@ class GroceryList {
         self.name = name
         self.list = list
     }
+}
+
+extension GroceryList: Equatable {
+    static func == (lhs: GroceryList, rhs: GroceryList) -> Bool {
+        return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
+    }
+    
+    
 }
