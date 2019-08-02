@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		42E6CF7022F3F5B400EE77B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E6CF6F22F3F5B400EE77B9 /* AppDelegate.swift */; };
-		42E6CF7222F3F5B400EE77B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E6CF7122F3F5B400EE77B9 /* ViewController.swift */; };
 		42E6CF7522F3F5B400EE77B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42E6CF7322F3F5B400EE77B9 /* Main.storyboard */; };
 		42E6CF7722F3F5B500EE77B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42E6CF7622F3F5B500EE77B9 /* Assets.xcassets */; };
 		42E6CF7A22F3F5B500EE77B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42E6CF7822F3F5B500EE77B9 /* LaunchScreen.storyboard */; };
+		42E6CF8622F3F65900EE77B9 /* Grocery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E6CF8522F3F65900EE77B9 /* Grocery.swift */; };
+		42E6CF8822F3F6BF00EE77B9 /* GroceryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E6CF8722F3F6BF00EE77B9 /* GroceryList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		42E6CF6C22F3F5B400EE77B9 /* Week1AssesmentPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Week1AssesmentPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42E6CF6F22F3F5B400EE77B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		42E6CF7122F3F5B400EE77B9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		42E6CF7422F3F5B400EE77B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		42E6CF7622F3F5B500EE77B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42E6CF7922F3F5B500EE77B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		42E6CF7B22F3F5B500EE77B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42E6CF8522F3F65900EE77B9 /* Grocery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grocery.swift; sourceTree = "<group>"; };
+		42E6CF8722F3F6BF00EE77B9 /* GroceryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,31 @@
 		42E6CF6E22F3F5B400EE77B9 /* Week1AssesmentPractice */ = {
 			isa = PBXGroup;
 			children = (
-				42E6CF6F22F3F5B400EE77B9 /* AppDelegate.swift */,
-				42E6CF7122F3F5B400EE77B9 /* ViewController.swift */,
 				42E6CF7322F3F5B400EE77B9 /* Main.storyboard */,
+				42E6CF8222F3F61100EE77B9 /* Model */,
+				42E6CF8122F3F5FF00EE77B9 /* Resources */,
+			);
+			path = Week1AssesmentPractice;
+			sourceTree = "<group>";
+		};
+		42E6CF8122F3F5FF00EE77B9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				42E6CF6F22F3F5B400EE77B9 /* AppDelegate.swift */,
 				42E6CF7622F3F5B500EE77B9 /* Assets.xcassets */,
 				42E6CF7822F3F5B500EE77B9 /* LaunchScreen.storyboard */,
 				42E6CF7B22F3F5B500EE77B9 /* Info.plist */,
 			);
-			path = Week1AssesmentPractice;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		42E6CF8222F3F61100EE77B9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				42E6CF8522F3F65900EE77B9 /* Grocery.swift */,
+				42E6CF8722F3F6BF00EE77B9 /* GroceryList.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +154,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42E6CF7222F3F5B400EE77B9 /* ViewController.swift in Sources */,
 				42E6CF7022F3F5B400EE77B9 /* AppDelegate.swift in Sources */,
+				42E6CF8822F3F6BF00EE77B9 /* GroceryList.swift in Sources */,
+				42E6CF8622F3F65900EE77B9 /* Grocery.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +304,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UR48EZC8Y4;
-				INFOPLIST_FILE = Week1AssesmentPractice/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Week1AssesmentPractice/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +322,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UR48EZC8Y4;
-				INFOPLIST_FILE = Week1AssesmentPractice/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Week1AssesmentPractice/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
